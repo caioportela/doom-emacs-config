@@ -53,4 +53,3 @@
 (package! lsp-ui)
 (package! typescript-mode)
 (package! undo-tree)
-(package! uuidgen)
