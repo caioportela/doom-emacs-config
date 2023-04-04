@@ -21,9 +21,6 @@
 ;; Apply fixes before saving
 (add-hook 'before-save-hook 'lsp-eslint-apply-all-fixes)
 
-;; Enable undo-tree.
-(global-undo-tree-mode)
-
 ;; Just doing (global-undo-tree-mode) is not working for some reason
 (add-hook 'prog-mode-hook 'undo-tree-mode)
 
