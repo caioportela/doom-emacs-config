@@ -10,9 +10,7 @@
 (require 'yasnippet)
 
 ;; Uniquify buffer names
-(toggle-uniquify-buffer-names)
-(setq uniquify-buffer-name-style 'forward)
-(setq uniquify-after-kill-buffer-p t)
+(setq-hook! 'persp-mode-hook uniquify-buffer-name-style 'forward)
 
 ;; LSP mode
 (setq lsp-completion-provider :none)           ;; Disable LSP's completion provider
