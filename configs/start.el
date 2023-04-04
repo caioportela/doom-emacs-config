@@ -41,7 +41,7 @@
   (setq-local company-transformers '(company-sort-by-backend-importance))
 
   ;; Set lsp company backends to nil
-  (setq-local +lsp-company-backends '(company-tide company-yasnippet))
+  (setq-local +lsp-company-backends '(company-tide))
 
   ;; Enable Tide completion using company backend
   (setq-local tide-completion-setup-company-backend t)
@@ -70,3 +70,6 @@
   (interactive)
   (let ((uuid (string-trim-right (shell-command-to-string "uuidgen -r"))))
     (insert uuid)))
+
+;; Set Octave as default mode for .m files
+(add-to-list 'auto-mode-alist '("\\.m\\'" . octave-mode))
