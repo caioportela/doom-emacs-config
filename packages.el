@@ -49,6 +49,7 @@
 ;(unpin! t)
 
 (package! crux)
+(package! ejc-sql)
 (package! lsp-treemacs)
 (package! lsp-ui)
 (package! typescript-mode)
