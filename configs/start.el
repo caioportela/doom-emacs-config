@@ -2,6 +2,7 @@
 
 ;; Configs to run at startup
 (require 'company)
+(require 'editorconfig)
 (require 'projectile)
 (require 'tide)
 (require 'treemacs)
@@ -11,6 +12,11 @@
 
 ;; Uniquify buffer names
 (setq-hook! 'persp-mode-hook uniquify-buffer-name-style 'forward)
+
+;; Enable editorconfig
+(editorconfig-mode 1)
+(add-hook 'prog-mode-hook #'editorconfig-mode-apply)
+(add-hook 'yaml-mode-hook 'editorconfig-mode-apply)
 
 ;; LSP mode
 (setq lsp-completion-provider :none)           ;; Disable LSP's completion provider
@@ -23,6 +29,7 @@
 
 ;; Just doing (global-undo-tree-mode) is not working for some reason
 (add-hook 'prog-mode-hook 'undo-tree-mode)
+(add-hook 'yaml-mode-hook 'undo-tree-mode)
 
 ;; Start hide/show minor mode
 (add-hook 'prog-mode-hook 'hs-minor-mode)
