@@ -81,5 +81,8 @@
 (setq auto-save-file-name-transforms `((".*" ,temporary-file-directory t)))
 (setq create-lockfiles nil)
 
+;; Fix "Invalid image type" error at startup
+(add-to-list 'image-types 'svg)
+
 ;; Load configs
-(mapc 'load (directory-files "~/.doom.d/configs/" t "\\.el$"))
+(mapc 'load (directory-files "~/.config/doom/configs/" t "\\.el$"))
