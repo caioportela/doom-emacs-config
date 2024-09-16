@@ -23,7 +23,6 @@
 (global-set-key (kbd "C-S-z") 'undo-tree-redo)
 (global-set-key (kbd "<home>") 'crux-move-beginning-of-line)
 
-
 ;; Indent selected region
 (defun shift-text (distance)
   (if (use-region-p)

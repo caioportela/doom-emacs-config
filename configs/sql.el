@@ -3,7 +3,6 @@
 (require 'ejc-sql)
 
 ;; Require completion frontend (autocomplete or company). One of them or both.
-;; (require 'ejc-autocomplete)
 (require 'ejc-company)
 
 (setq nrepl-sync-request-timeout 60)

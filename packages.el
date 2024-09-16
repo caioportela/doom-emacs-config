@@ -52,5 +52,7 @@
 (package! ejc-sql)
 (package! lsp-treemacs)
 (package! lsp-ui)
+(package! jq-mode)
+(package! restclient)
 (package! typescript-mode)
 (package! undo-tree)

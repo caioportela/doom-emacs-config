@@ -13,16 +13,32 @@
 ;; Uniquify buffer names
 (setq-hook! 'persp-mode-hook uniquify-buffer-name-style 'forward)
 
+
 ;; Enable editorconfig
 (editorconfig-mode 1)
 (add-hook 'prog-mode-hook #'editorconfig-mode-apply)
 (add-hook 'yaml-mode-hook 'editorconfig-mode-apply)
 
 ;; LSP mode
-(setq lsp-completion-provider :none)           ;; Disable LSP's completion provider
-(setq lsp-eslint-package-manager "yarn")       ;; Set Yarn as package manager
-(setq lsp-signature-render-documentation nil)  ;; Disable signature help
-(setq lsp-ui-sideline-enable nil)              ;; Disable LSP sideline symbols
+(use-package lsp-mode :ensure t)
+
+(setq lsp-completion-provider :none          ;; Disable LSP's completion provider
+      lsp-eslint-package-manager "yarn"      ;; Set Yarn as package manager
+      lsp-signature-render-documentation nil ;; Disable signature help
+      lsp-ui-sideline-enable nil             ;; Disable LSP sideline symbols
+      lsp-log-io nil)                        ;; if set to true can cause a performance hit
+
+;; Increase the amount of data which Emacs reads from the process
+(setq gc-cons-threshold (* 512 1024 1024)
+      read-process-output-max (* 1024 1024)
+      treemacs-space-between-root-nodes nil
+      company-minimum-prefix-length 1
+      lsp-idle-delay 0.3)
+
+;; Setup restclient mode
+(use-package restclient
+  :ensure t
+  :mode (("\\.http\\'" . restclient-mode)))
 
 ;; Apply fixes before saving
 (add-hook 'before-save-hook 'lsp-eslint-apply-all-fixes)
@@ -80,3 +96,9 @@
 
 ;; Set Octave as default mode for .m files
 (add-to-list 'auto-mode-alist '("\\.m\\'" . octave-mode))
+
+;; Set indentation for Java files
+(add-hook 'java-mode-hook (lambda ()
+                            (setq c-basic-offset 2
+                                  tab-width 2
+                                  indent-tabs-mode t)))
