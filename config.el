@@ -15,7 +15,7 @@
 ;; - `doom-variable-pitch-font' -- a non-monospace font (where applicable)
 ;; - `doom-big-font' -- used for `doom-big-font-mode'; use this for
 ;;   presentations or streaming.
-;; - `doom-unicode-font' -- for unicode glyphs
+;; - `doom-symbol-font' -- for symbols
 ;; - `doom-serif-font' -- for the `fixed-pitch-serif' face
 ;;
 ;; See 'C-h v doom-font' for documentation and more examples of what they
@@ -75,14 +75,13 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
+;; -- Personal Configs
+
 ;; Emacs creates temporary backup, autosave, and lockfiles that interfere with
 ;; broccoli watcher, so they nees to either be moved out of the way or disabled.
 (setq backup-directory-alist `((".*" . ,temporary-file-directory)))
 (setq auto-save-file-name-transforms `((".*" ,temporary-file-directory t)))
 (setq create-lockfiles nil)
 
-;; Fix "Invalid image type" error at startup
-(add-to-list 'image-types 'svg)
-
-;; Load configs
+;; Load my configs
 (mapc 'load (directory-files "~/.config/doom/configs/" t "\\.el$"))
