@@ -13,7 +13,6 @@
   :custom
   ;; core
   (lsp-auto-configure t)                                     ; Auto configure `lsp-mode' main features
-  (lsp-eldoc-enable-hover t)                                 ; Display signature information in the echo area
   (lsp-eldoc-enable-hover t)                                 ; Display hover info when it is present
   (lsp-eldoc-render-all nil)                                 ; Display all of the info returned by `textDocument/hover'
   (lsp-enable-dap-auto-configure t)                          ; Enable `dap-auto-configure-mode'
@@ -49,20 +48,20 @@
   (lsp-diagnostics-provider :flycheck) ; Use flycheck as diagnostics provider
 
   ;; headerline
-  (lsp-headerline-breadcrumb-enable t)              ; Enable breadcrumb on headerline
-  (lsp-headerline-breadcrumb-enable-dignostics nil) ; Apply different face on the breadcrumb based on the errors
-  (lsp-headerline-breadcrumb-symbol-numbers nil)    ; Label symbols with numbers on the breadcrumb
+  (lsp-headerline-breadcrumb-enable t)               ; Enable breadcrumb on headerline
+  (lsp-headerline-breadcrumb-enable-diagnostics nil) ; Apply different face on the breadcrumb based on the errors
+  (lsp-headerline-breadcrumb-symbol-numbers nil)     ; Label symbols with numbers on the breadcrumb
+
+  ;; icons
+  (lsp-headerline-breadcrumb-icons-enable t) ; Enable icons support for headerline-breadcrumb
 
   ;; lens
-  (lsp-lens-enable t) ; Enable lenses if server supports
+  (lsp-lens-enable nil) ; Enable lenses if server supports
 
   ;; modeline
   (lsp-modeline-code-actions-enable nil)   ; Show code actions on modeline
   (lsp-modeline-diagnostics-enable nil)    ; Show diagnostics on modeline
   (lsp-modeline-workspace-status-enable t) ; Show workspace status on modeline
-
-  ;; icons
-  (lsp-headerline-breadcrumb-icons-enable t) ; Enable icons support for headerline-breadcrumb
 
   ;; semantic
   (lsp-semantic-tokens-enable nil) ; Enable support for semantic tokens
@@ -92,7 +91,13 @@
   :demand t
   :after lsp-mode)
 
-(add-hook 'before-save-hook 'lsp-eslint-apply-all-fixes) ; Apply fixes before saving
+(defun auto-fix-on-save ()
+  "Apply eslint fixes on save if `lsp-eslint' is active."
+  (when (lsp--find-workspaces-for "eslint")
+    (lsp-eslint-apply-all-fixes)))
+
+;; Apply fixes before saving
+(add-hook 'before-save-hook #'auto-fix-on-save)
 
 ;; Setup LSP treemacs
 (lsp-treemacs-sync-mode 1)

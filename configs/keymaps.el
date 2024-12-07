@@ -17,8 +17,10 @@
 (keymap-global-set "C-f" '+vertico/search-symbol-at-point)                    ; Ctrl + f           - Performs a search in the current buffer for thing at point
 (keymap-global-set "C-k" 'kill-region)                                        ; Ctrl + k           - Kill text between point and mark
 (keymap-global-set "C-s" 'save-buffer)                                        ; Ctrl + s           - Save current buffer
+(keymap-global-set "C-t" '+fold/toggle)                                       ; Ctrl + t           - Toggle the fold at point
 (keymap-global-set "C-v" 'yank)                                               ; Ctrl + v           - Reinsert ("paste") the last stretch of killed text
 (keymap-global-set "C-z" 'undo)                                               ; Ctrl + z           - Undo changes
+(keymap-global-set "C-;" 'comment-line)                                       ; Ctrl + ;           - Comment or uncomment current line and leave point after it
 (keymap-global-set "C-SPC" 'completion-at-point)                              ; Ctrl + SPC         - Start searching the completion candidates
 (keymap-global-set "C-S-f" '+default/search-project-for-symbol-at-point)      ; Ctrl + Shift + f   - Search current project for symbol at point
 (keymap-global-set "C-S-z" 'undo-redo)                                        ; Ctrl + Shift + z   - Redo changes
