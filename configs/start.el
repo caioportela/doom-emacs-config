@@ -19,9 +19,9 @@
   (corfu-preview-current nil)    ; Disable current candidate preview
 
   :init
-  (global-corfu-mode)
   (corfu-history-mode)
-  (corfu-popupinfo-mode))
+  (corfu-popupinfo-mode)
+  (global-corfu-mode))
 
 ;; Setup flycheck
 (use-package flycheck

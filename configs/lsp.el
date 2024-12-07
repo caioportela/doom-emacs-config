@@ -92,5 +92,7 @@
   :demand t
   :after lsp-mode)
 
+(add-hook 'before-save-hook 'lsp-eslint-apply-all-fixes) ; Apply fixes before saving
+
 ;; Setup LSP treemacs
 (lsp-treemacs-sync-mode 1)
