@@ -12,6 +12,9 @@
 ;; Uniquify buffer names
 (setq-hook! 'persp-mode-hook uniquify-buffer-name-style "forward")
 
+;; Make shift-cursor commands select text when possible
+(setq org-support-shift-select t)
+
 ;; Setup corfu
 (use-package corfu
   :custom
