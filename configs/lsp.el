@@ -101,3 +101,8 @@
 
 ;; Setup LSP treemacs
 (lsp-treemacs-sync-mode 1)
+
+;; Fix icons being crazy
+(use-package treemacs-nerd-icons
+  :config
+  (treemacs-load-theme "nerd-icons"))
