@@ -72,7 +72,8 @@
   (lsp-ui-sideline-show-hover nil)          ; Show hover messages in sideline
 
   :init
-  (setq lsp-use-plists t))
+  (setq lsp-use-plists t)
+  (setq completion-ignore-case t))
 
 ;; Disable LSP completion
 (use-package lsp-completion
