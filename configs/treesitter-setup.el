@@ -5,6 +5,7 @@
   (interactive)
   (dolist (grammar
            '((css . ("https://github.com/tree-sitter/tree-sitter-css" "v0.23.1"))
+             (elisp "https://github.com/Wilfred/tree-sitter-elisp")
              (html . ("https://github.com/tree-sitter/tree-sitter-html" "v0.23.2"))
              (javascript . ("https://github.com/tree-sitter/tree-sitter-javascript" "v0.23.1" "src"))
              (json . ("https://github.com/tree-sitter/tree-sitter-json" "v0.24.8"))
