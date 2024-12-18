@@ -15,6 +15,9 @@
 ;; Make shift-cursor commands select text when possible
 (setq org-support-shift-select t)
 
+;; Overwrite selected text
+(delete-selection-mode t)
+
 ;; Setup corfu
 (use-package corfu
   :custom
