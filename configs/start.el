@@ -9,6 +9,9 @@
 ;; Use spaces instead of tabs
 (setq-default indent-tabs-mode nil)
 
+;; Set javascript indentation to 2 spaces
+(setq-default js-indent-level 2)
+
 ;; Uniquify buffer names
 (setq-hook! 'persp-mode-hook uniquify-buffer-name-style "forward")
 
