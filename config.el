@@ -83,5 +83,8 @@
 (setq auto-save-file-name-transforms `((".*" ,temporary-file-directory t)))
 (setq create-lockfiles nil)
 
+;; Save multiple-cursor commands
+(setq mc/list-file "~/.config/doom/configs/mc-lists.el")
+
 ;; Load my configs
 (mapc 'load (directory-files "~/.config/doom/configs/" t "\\.el$"))
