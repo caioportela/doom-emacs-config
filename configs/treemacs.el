@@ -11,6 +11,7 @@
           treemacs-indentation 2             ; The number of spaces or pixels each level is indented in the file tree
           treemacs-position 'left)           ; Position of treemacs buffer
 
+    (treemacs-git-mode 'deferred)
     (treemacs-fringe-indicator-mode nil)) ; Treemacs-Fringe-Indicator mode
 
   :bind
