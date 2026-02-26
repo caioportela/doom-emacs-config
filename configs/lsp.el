@@ -43,6 +43,8 @@
   (lsp-completion-sort-initial-results t)        ; Filter initial results from server
   (lsp-completion-use-last-result t)             ; Temporarily use last server result when interrupted by keyboard
   (lsp-enable-snippet t)                         ; Enable snippet completion support
+  (lsp-javascript-suggest-complete-js-docs nil)  ; Disable suggestion to complete JSDoc comments
+  (lsp-typescript-suggest-complete-js-docs nil)  ; Disable suggestion to complete JSDoc comments
 
   ;; diagnostics
   (lsp-diagnostics-provider :flycheck) ; Use flycheck as diagnostics provider
