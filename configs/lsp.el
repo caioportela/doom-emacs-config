@@ -1,7 +1,5 @@
 ;;; configs/lsp.el -*- lexical-binding: t; -*-
 
-(require 'lsp-mode)
-
 ;; Setup LSP
 (use-package lsp-mode
   :diminish "LSP"
@@ -102,8 +100,6 @@
 ;; Apply fixes before saving
 (add-hook 'before-save-hook #'auto-fix-on-save)
 
-;; Setup LSP treemacs
-(lsp-treemacs-sync-mode 1)
 
 ;; Fix icons being crazy
 (use-package treemacs-nerd-icons
